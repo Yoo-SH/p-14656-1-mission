@@ -51,4 +51,7 @@ public class Post {
                 ", lastModifiedAt=" + lastModifiedAt +
                 '}';
     }
+
+    public String getId() {
+    }
 }
