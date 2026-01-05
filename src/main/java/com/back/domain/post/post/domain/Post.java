@@ -1,23 +1,24 @@
 
 package com.back.domain.post.post.document;
 
+import lombok.Getter;
 import org.springframework.data.annotation.*;
 import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
-
 import java.time.OffsetDateTime;
 
+@Getter
 @Document(indexName = "posts")
 public class Post {
     @Id
     private String id;
-    @Field(type= FieldType.Text)
+    @Field(type = FieldType.Text)
     private String title;
-    @Field(type= FieldType.Text)
+    @Field(type = FieldType.Text)
     private String content;
-    @Field(type= FieldType.Keyword)
+    @Field(type = FieldType.Keyword)
     private String author;
 
     @Field(
@@ -32,7 +33,7 @@ public class Post {
     )
     private OffsetDateTime lastModifiedAt;
 
-    public Post(String title, String content, String author){
+    public Post(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
@@ -52,6 +53,4 @@ public class Post {
                 '}';
     }
 
-    public String getId() {
-    }
 }
